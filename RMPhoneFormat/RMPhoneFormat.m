@@ -618,7 +618,7 @@ static NSMutableDictionary *flagRules = nil;
 
 + (NSString *)strip:(NSString *)str {
     NSMutableString *res = [NSMutableString stringWithString:str];
-    for (int i = [res length] - 1; i >= 0; i--) {
+    for (NSUInteger i = [res length] - 1; i >= 0; i--) {
         if (![phoneChars characterIsMember:[res characterAtIndex:i]]) {
             [res deleteCharactersInRange:NSMakeRange(i, 1)];
         }
@@ -861,8 +861,8 @@ static NSMutableDictionary *flagRules = nil;
         NSNumber *num = [_callingCodeOffsets objectForKey:callingCode];
         if (num) {
             const uint8_t *bytes = [_data bytes];
-            uint32_t start = [num longValue];
-            uint32_t offset = start;
+            uint64_t start = [num longValue];
+            uint64_t offset = start;
             res = [[CallingCodeInfo alloc] init];
             res.callingCode = callingCode;
             res.countries = [_callingCodeCountries objectForKey:callingCode];
