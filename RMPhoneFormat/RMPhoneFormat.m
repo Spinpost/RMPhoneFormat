@@ -618,7 +618,7 @@ static NSMutableDictionary *flagRules = nil;
 
 + (NSString *)strip:(NSString *)str {
     NSMutableString *res = [NSMutableString stringWithString:str];
-    for (NSUInteger i = [res length] - 1; i >= 0; i--) {
+    for (NSInteger i = [res length] - 1; i >= 0; i--) {
         if (![phoneChars characterIsMember:[res characterAtIndex:i]]) {
             [res deleteCharactersInRange:NSMakeRange(i, 1)];
         }
