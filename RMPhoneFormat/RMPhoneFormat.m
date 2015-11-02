@@ -861,8 +861,8 @@ static NSMutableDictionary *flagRules = nil;
         NSNumber *num = [_callingCodeOffsets objectForKey:callingCode];
         if (num) {
             const uint8_t *bytes = [_data bytes];
-            uint64_t start = [num longValue];
-            uint64_t offset = start;
+            long start = [num longValue];
+            long offset = start;
             res = [[CallingCodeInfo alloc] init];
             res.callingCode = callingCode;
             res.countries = [_callingCodeCountries objectForKey:callingCode];
